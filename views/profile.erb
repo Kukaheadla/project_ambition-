@@ -1,0 +1,61 @@
+<div style= "background-color:orange; color: white">
+
+  <a href="/" class="btn" style = "border: 1px solid white;margin:5px;">Back</a>
+  <br>
+  <div class="profile-tab">
+
+    <h3><%= current_user.username %></h3>
+
+    <%= current_user.email %>
+    <br>
+
+
+
+    <h4>My goals:</h4>
+    <hr>
+    <% @goals.each do |goal| %>
+      <%if current_user == goal.user %>
+          <p><%= goal['ambition'] %></p>
+          <img src="<%=goal['image_url']%>" class="post-img">
+
+          <br><br>
+          <% if goal.status == true %>
+            <p style="color:green;">completed</p>
+             was due on:<%= goal.duedate.strftime("%a, %b/%e/%Y")%>
+          <% elsif goal.duedate && goal.duedate > Time.now %>
+            Due: <%= goal.duedate.strftime("%a, %b/%e/%Y") %>
+            <p style="color:green;">ongoing</p>
+          <% elsif  goal.duedate && goal.duedate < Time.now %>
+            Due: <%= goal.duedate.strftime("%a, %b/%e/%Y") %>
+            <p style="color:red;">expired</p>
+          <% else %>
+            <p style="color:yellow">Life-long goal</p>
+          <% end %>
+
+          <details>
+            <summary>Comments</summary>
+              <% goal.comments.each do |comment| %>
+                <p><%= comment.user.username.capitalize %>:
+                  <%= comment.body %></p>
+              <% end %>
+          </details>
+          
+          <%if goal.status == nil%>
+            <form class="" action="/completegoal" method="post">
+              <input type="hidden" name="goal_id" value="<%=goal.id%>">
+              <br>
+              <button class="btn" style = "border: 1px solid white;margin:5px;background-color: green">Complete</button>
+            </form>
+          <% end %>
+
+          <form class="" action="/deletegoal" method="post">
+            <input type="hidden" name="goal_id" value="<%=goal.id%>">
+            <br>
+            <button class="btn" style = "border: 1px solid white;margin:5px;">delete</button>
+          </form>
+          <hr>
+        <% end %>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,283 @@
+* {
+  font-family: 'Comfortaa', cursive;
+}
+
+.post-img {
+  width: 15em;
+}
+
+.logo {
+  width: 50px;
+  float: left;
+  position: relative;
+  margin: 10px 20px 20px 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #727272;
+}
+
+nav {
+  list-style-type: none;
+  background-color: white;
+}
+
+li {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 5px 0 8px;
+  margin-top: 29px;
+}
+
+li :hover {
+  text-decoration: none;
+}
+
+li:last-child {
+  float: right;
+  margin-right: 29px;
+  border: 1px solid orange;
+  border-radius: 10px;
+  padding-right: 7px;
+  margin-top: 20px;
+}
+
+li :last-child :hover {
+  color: rgb(244, 191, 66);
+}
+
+b {
+  color: orange;
+}
+
+.hero-text {
+  width: 40%;
+  padding: 30px 0px 0;
+  margin-left: 10px;
+  color:white;
+  display: -webkit-inline-box
+}
+
+.hero {
+    background-image: url(/backgroundImg.png);
+    background-size: cover;
+    height: 700px;
+    margin: 0px 18px 18px 18px;
+}
+.hero-signup {
+  color: white;
+  float: right;
+  margin: 5em 14px 5px 18px;
+  padding-right: 20%;
+  text-align: center;
+
+}
+
+.input-signup {
+  height: 38px;
+  color: black;
+  border-radius: 24px;
+  text-align: center;
+  margin: 5px;
+  background-color: white;
+  border-color: white;
+  width: 100%;
+  border: none;
+}
+
+
+.btn-lg.round {
+	border-radius: 24px;
+
+  margin: 10px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: orange;
+  border-color: orange;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #FFC761;
+  border-color: #FFC761;
+}
+
+footer {
+  text-align: center;
+  font-size: 10px;
+  display: block;
+  float: bottom;
+  clear: both;
+}
+
+.board-left {
+  width: 39%;
+  margin: 5px 5px 5px 18%;
+  float:left;
+  display: inline;
+  background-color: orange;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.board-right {
+
+  width: 30%;
+  float:right;
+  display: inline;
+  text-align: center;
+  margin-right: 7em;
+  padding: 55px;
+  background-color: orange;
+  border-radius: 10px;
+}
+
+.spacing {
+  display: block;
+  text-decoration: none !important;
+}
+
+#post {
+  color: white;
+  text-align: left;
+}
+
+.login-btn{
+  padding: 7px;
+}
+
+.comment-style {
+  width: 19em;
+}
+
+.goalclass {
+  text-align: center;
+}
+
+.new-goal {
+  text-align: center;
+
+}
+
+form > input {
+  width: 50%;
+}
+
+textarea {
+  width: 30em;
+}
+
+details {
+  text-align: left;
+  padding-left: 10%;
+  background-color: grey;
+  border-radius: 5px;
+}
+
+.comment-sect {
+  padding-top: 2px;
+  border-top: 0.5px solid white;
+  border-bottom: 0.5px solid white;
+  width: 68%
+}
+
+.login-banner {
+  display:block;
+  width: 10%;
+  clear:both;
+  padding: 5px;
+}
+
+.banner {
+  text-align: center;
+}
+
+.login-pg {
+  padding: 20px;
+  width: 30%;
+  background-color: #3b62a0;
+  text-align: center;
+  color: white;
+  border-radius: 15px;
+}
+
+.login-pg > a {
+  font-size: 10px;
+  color: white;
+}
+
+.input-login {
+  border-radius: 10px;
+  color: black;
+  border: none;
+  text-align: center;
+
+}
+
+.login-tab {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-btn {
+  border: none;
+  border-radius: 13px;
+  background-color: orange;
+  text-align: right;
+}
+
+.twitter-follow-button {
+  display: inline-flex;;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #00aced;
+  margin: 5px;
+  border-radius: 1000px;
+}
+
+
+.twitter-follow-button > a {
+  color: white;
+  text-decoration: none;
+}
+
+.about-hero {
+
+  background-image: url(/backgroundImg3.png);
+  background-size: cover;
+
+  height: 700px;
+  margin: 0px 18px 18px 18px;
+  color: white;
+}
+
+.about-hero > p {
+  margin: 0px 38px 18px 38px;
+}
+
+.about-hero > h1 {
+  padding: 30px 0 18px 38px;
+}
+
+.profile-tab {
+  text-align: center;
+  
+}
+/*@media (max-width: 700px) {
+  .hero-text {
+    font-size: 18px;
+  }
+
+  .hero-signup {
+    font-size: 15px;
+  }
+}*/

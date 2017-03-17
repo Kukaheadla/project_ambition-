@@ -1,0 +1,106 @@
+
+<title>GoGoal</title>
+
+<% if !logged_in? then %>
+
+<nav>
+  <img src="logo.png" alt="LOGO" class="logo">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about">About</a></li>
+  <li class="login-btn"><a href="/login">Login</a></li>
+</nav>
+<br>
+
+<div class="hero">
+  <h1 class ='hero-text'><b>GoGoal</b>,the social platform to share your greatest ambition</h1>
+  <div class="hero-signup">
+    <h2>Sign up today</h2>
+    <form class="" action="/createuser" method="post">
+      <input type="text" name="username" value="" placeholder = "Username" class= "input-signup">
+      <br>
+      <input type="email" name="email" value="" placeholder = "Email" class= "input-signup">
+      <br>
+      <input type="password" name="password" value="" placeholder = "Create a password" class= "input-signup">
+      <br>
+
+      <button class="btn btn-primary btn-lg round">Sign Up</button>
+    </form>
+  </div>
+</div>
+
+<% end %>
+
+
+<% if logged_in? then %>
+  <div class="banner">
+    <img src="logo.png" alt="logo" class="login-banner">
+  </div>
+
+  <div class="board-right">
+    <div>
+      Welcome!
+      <br>
+      <%= current_user.username %>
+    </div>
+    <br>
+    <a href="/goal/new" class="spacing">Share Goal</a>
+    <br>
+    <a href="/<%= current_user.email%>/profile" class="spacing">Check My Profile</a>
+    <br>
+    <form action="/session" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button class="btn btn-primary btn-lg round">logout</button>
+    </form>
+  </div>
+
+  <div class="board-left">
+  <br>
+
+    <% @goals.each do |goal| %>
+        <b id="post" style ="text-align: left; padding-left:10%;clear: both; display: block;"><%= goal.user.username.capitalize %> posted:</b>
+        <p><%= goal['ambition'] %><p>
+        <img src="<%=goal['image_url']%>" class="post-img">
+        <br>
+
+        <% if goal.status == true %>
+          <p style="color:green;">completed</p>
+           was due on:<%= goal.duedate.strftime("%a, %b/%e/%Y")%>
+        <% elsif goal.duedate && goal.duedate > Time.now %>
+          Due: <%= goal.duedate.strftime("%a, %b/%e/%Y") %>
+          <p style="color:green;">ongoing</p>
+        <% elsif  goal.duedate && goal.duedate < Time.now %>
+          Due: <%= goal.duedate.strftime("%a, %b/%e/%Y") %>
+          <p style="color:red;">expired</p>
+        <% else %>
+          <p style="color:yellow">Life-long goal</p>
+        <% end %>
+
+        <details>
+          <summary>Comments</summary>
+          <div class="comment-sect">
+            <% goal.comments.each do |comment| %>
+              <p><%= comment.user.username.capitalize %>: <%= comment.body %></p>
+            <% end %>
+          </div>
+          <br>
+          <form class="" action="/comments" method="post">
+              <input type="text" name="commentBody" value="" placeholder = "write your comment here" class = "comment-style">
+              <input type="hidden" name="goal_id" value='<%= goal['id']%>'>
+              <button class="btn">Submit</button>
+          </form>
+          <br>
+        </details>
+
+        <% if goal.user_id == current_user.id %>
+          <form class="" action="/deletegoal" method="post">
+            <input type="hidden" name="goal_id" value="<%=goal.id%>">
+            <br>
+            <button class="delete-btn">delete</button>
+          </form>
+        <% end %>
+
+        <hr>
+    <% end %>
+  </div>
+
+<% end %>
