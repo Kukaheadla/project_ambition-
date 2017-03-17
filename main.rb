@@ -1,4 +1,4 @@
-require 'pry'
+
 require 'sinatra'
 require 'sinatra/reloader'
 require 'pg'
@@ -115,4 +115,3 @@ post '/completegoal' do
   completeGoal.save
   redirect '/'
 end
-# binding.pry
