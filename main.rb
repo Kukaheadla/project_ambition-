@@ -1,6 +1,5 @@
 
 require 'sinatra'
-require 'sinatra/reloader'
 require 'pg'
 require 'active_record'
 require_relative 'database_config'
