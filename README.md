@@ -1,4 +1,4 @@
-# ![]Project #2: Building Your First Full-stack Application
+# Project #2: Building Your First Full-stack Application
 
 ### Overview
 The full-stack application 'GoGoal' is a social network platform which is intended for the public to share their greatest ambition.
@@ -49,4 +49,4 @@ ___
   1. Mobile friendly design
   2. Allow users to upload their image in the comment section
   3. CSS code cleanliness
-  4. Less orange 
+  4. Less orange
